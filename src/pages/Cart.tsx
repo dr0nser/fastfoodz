@@ -1,7 +1,7 @@
 import { cartAtom } from "@/recoil/atom/cartAtom";
 import { useRecoilState } from "recoil";
 import { Link } from "react-router-dom";
-import CartItem from "./CartItem";
+import CartItem from "../customcomponents/CartItem";
 import { CartItemType } from "@/utils/types/app/CartItemType";
 import { Button } from "@/components/ui/button";
 import supabase from "@/utils/contants/supabase";

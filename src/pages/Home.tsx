@@ -8,7 +8,7 @@ import {
 } from "@/components/ui/select";
 import { useState } from "react";
 import { Input } from "@/components/ui/input";
-import RestaurantCards from "./RestaurantCards";
+import RestaurantCards from "../customcomponents/RestaurantCards";
 
 export default function Home() {
   const [sortBy, setSortBy] = useState("relevance");

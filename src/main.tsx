@@ -6,18 +6,18 @@ import { createRoot } from "react-dom/client";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import Header from "./customcomponents/Header.tsx";
 import Footer from "./customcomponents/Footer.tsx";
-import Home from "./customcomponents/Home.tsx";
-import Menu from "./customcomponents/Menu.tsx";
+import Home from "./pages/Home.tsx";
+import Menu from "./pages/Menu.tsx";
 import { RecoilRoot } from "recoil";
-import Cart from "./customcomponents/Cart.tsx";
-import ErrorPage from "./customcomponents/ErrorPage.tsx";
+import Cart from "./pages/Cart.tsx";
+import ErrorPage from "./pages/ErrorPage.tsx";
 import {
   ClerkProvider,
   SignedIn,
   SignedOut,
   RedirectToSignIn,
 } from "@clerk/clerk-react";
-import Auth from "./customcomponents/Auth.tsx";
+import Auth from "./pages/Auth.tsx";
 import { Toaster } from "./components/ui/toaster.tsx";
 
 const queryClient = new QueryClient();

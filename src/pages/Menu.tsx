@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import RestaurantInfo from "./RestaurantInfo";
-import MenuItemsWithCategory from "./MenuItemsWithCategory";
+import RestaurantInfo from "../customcomponents/RestaurantInfo";
+import MenuItemsWithCategory from "../customcomponents/MenuItemsWithCategory";
 import { Accordion } from "@/components/ui/accordion";
-import MenuItemsWithNestedCategory from "./MenuItemsWithNestedCategory";
+import MenuItemsWithNestedCategory from "../customcomponents/MenuItemsWithNestedCategory";
 import MenuSkeleton from "@/skeleton/MenuSkeleton";
 import RestaurantInfoSkeleton from "@/skeleton/RestaurantInfoSkeleton";
 import { Switch } from "@/components/ui/switch";
