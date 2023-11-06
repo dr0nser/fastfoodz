@@ -19,6 +19,7 @@ import {
 } from "@clerk/clerk-react";
 import Auth from "./pages/Auth.tsx";
 import { Toaster } from "./components/ui/toaster.tsx";
+import Orders from "./pages/Orders.tsx";
 
 const queryClient = new QueryClient();
 const clerkPubKey = import.meta.env.VITE_REACT_APP_CLERK_PUBLISHABLE_KEY;
@@ -56,6 +57,19 @@ const router = createBrowserRouter([
       </React.StrictMode>
     ),
     children: [
+      {
+        path: "/orders",
+        element: (
+          <>
+            <SignedIn>
+              <Orders />
+            </SignedIn>
+            <SignedOut>
+              <RedirectToSignIn />
+            </SignedOut>
+          </>
+        ),
+      },
       {
         path: "/cart",
         element: <Cart />,

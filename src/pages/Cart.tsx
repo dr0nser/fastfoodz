@@ -1,6 +1,6 @@
 import { cartAtom } from "@/recoil/atom/cartAtom";
 import { useRecoilState } from "recoil";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import CartItem from "../customcomponents/CartItem";
 import { CartItemType } from "@/utils/types/app/CartItemType";
 import { Button } from "@/components/ui/button";
@@ -12,10 +12,12 @@ export default function Cart() {
   const [cart, setCart] = useRecoilState<CartItemType[]>(cartAtom);
   const { isSignedIn, user } = useUser();
   const { toast } = useToast();
+  const navigate = useNavigate();
 
   async function submitOrder() {
-    if (!isSignedIn || cart.length === 0) return;
-    const loggedInUserId = user.id;
+    if (!isSignedIn || cart.length === 0) navigate("/sign-in");
+    const loggedInUser = user!;
+    const loggedInUserId = loggedInUser.id;
     const { error } = await supabase
       .from("orders")
       .insert({ content: cart, user_id: loggedInUserId });
@@ -33,7 +35,7 @@ export default function Cart() {
       const appObject = localStorage.getItem("fastfoodz");
       if (appObject) {
         const parsed = JSON.parse(appObject);
-        parsed.cart = [...cart];
+        parsed.cart = [];
         localStorage.setItem("fastfoodz", JSON.stringify(parsed));
       }
     }

@@ -35,7 +35,7 @@ export default function Header() {
                   {cartItems.reduce((total, item) => total + item.quantity, 0)}
                 </p>
               </div>
-              <p className="text-lg font-semibold mt-1">Cart</p>
+              <p className="text-md font-semibold mt-1">Cart</p>
             </div>
           </Link>
           {isSignedIn && userId ? (
@@ -58,6 +58,14 @@ export default function Header() {
               <div className="flex space-x-1 items-center text-gray-600 dark:text-gray-200 dark:hover:text-orange-500 hover:text-orange-500">
                 <BsPerson className="text-2xl" />
                 <p className="text-lg font-semibold mt-1">Sign In</p>
+              </div>
+            </Link>
+          )}
+          {isSignedIn && (
+            <Link to="/orders">
+              <div className="flex space-x-1 items-center text-gray-600 dark:text-gray-200 dark:hover:text-orange-500 hover:text-orange-500">
+                <BsPerson className="text-2xl" />
+                <p className="text-lg font-semibold mt-1">Orders</p>
               </div>
             </Link>
           )}

@@ -75,7 +75,7 @@ export default function MenuItem({ data, menuItemStyles }: MenuItemProps) {
           {data.name}
         </p>
         <p className="font-semibold text-gray-700 pb-3 dark:text-gray-300">
-          ₹ {data.price / 100}
+          ₹ {data.price ? data.price / 100 : data.defaultPrice! / 100}
         </p>
         <p className="w-4/5 text-gray-400">{data.description}</p>
       </div>

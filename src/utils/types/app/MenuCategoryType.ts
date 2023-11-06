@@ -19,6 +19,7 @@ export interface MenuItemType {
   inStock: number;
   isVeg?: number;
   price: number;
+  defaultPrice?: number;
   variants: Variants;
   variantsV2: VariantsV2;
   itemAttribute: ItemAttribute;
