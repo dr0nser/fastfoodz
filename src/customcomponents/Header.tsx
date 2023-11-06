@@ -11,6 +11,7 @@ export default function Header() {
   const { user } = useUser();
 
   const cartItems = useRecoilValue(cartAtom);
+
   return (
     <header className="sticky top-0 bg-white shadow-sm z-50 dark:bg-black dark:text-gray-200 dark:shadow-sm">
       <div className="py-2 w-3/5 mx-auto flex items-center justify-between">
@@ -39,7 +40,7 @@ export default function Header() {
             </div>
           </Link>
           {isSignedIn && userId ? (
-            <div className="flex space-x-2 items-center font-semibold">
+            <div className="flex space-x-1 items-center text-gray-600 dark:text-gray-200 dark:hover:text-orange-500 hover:text-orange-500">
               <UserButton
                 appearance={{
                   elements: {
@@ -51,7 +52,9 @@ export default function Header() {
                   },
                 }}
               />
-              <p>{user?.firstName}</p>
+              <p className="font-semibold pt-1 cursor-pointer">
+                {user?.firstName}
+              </p>
             </div>
           ) : (
             <Link to="/sign-in">
@@ -64,8 +67,7 @@ export default function Header() {
           {isSignedIn && (
             <Link to="/orders">
               <div className="flex space-x-1 items-center text-gray-600 dark:text-gray-200 dark:hover:text-orange-500 hover:text-orange-500">
-                <BsPerson className="text-2xl" />
-                <p className="text-lg font-semibold mt-1">Orders</p>
+                <p className="font-semibold mt-1">Orders</p>
               </div>
             </Link>
           )}

@@ -20,7 +20,7 @@ export default function useOrders() {
   const { data, isSuccess } = useQuery({
     queryKey: ["orders"],
     queryFn: fetchOrders,
-    cacheTime: 0,
+    staleTime: Infinity,
   });
 
   useEffect(() => {

@@ -1,17 +1,10 @@
-import {
-  Select,
-  SelectContent,
-  SelectGroup,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
 import { useState } from "react";
-import { Input } from "@/components/ui/input";
 import RestaurantCards from "../customcomponents/RestaurantCards";
+import Sort from "@/customcomponents/Sort";
+import Search from "@/customcomponents/Search";
 
 export default function Home() {
-  const [sortBy, setSortBy] = useState("relevance");
+  const [sortBy, setSortBy] = useState<string>("relevance");
   const [searchQuery, setSearchQuery] = useState("");
 
   return (
@@ -20,30 +13,13 @@ export default function Home() {
       <div className="flex items-center justify-between text-gray-600">
         <div id="sortby-container" className="flex items-center space-x-5">
           <p className="text-md font-medium dark:text-gray-300">Sort By</p>
-          <Select onValueChange={setSortBy} defaultValue={sortBy}>
-            <SelectTrigger className="w-44 dark:text-gray-300 dark:border-gray-500">
-              <SelectValue placeholder="Select a sort category" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectGroup>
-                <SelectItem value="relevance">Relevance</SelectItem>
-                <SelectItem value="toprated">Top Rated</SelectItem>
-                <SelectItem value="deliverytime">Delivery Time</SelectItem>
-              </SelectGroup>
-            </SelectContent>
-          </Select>
+          <Sort setSortBy={setSortBy} sortBy={sortBy} />
         </div>
         <div
           id="search-container"
           className="flex w-full max-w-md items-center space-x-2 border border-slate-300 rounded-md"
         >
-          <Input
-            className="dark:text-gray-300"
-            type="text"
-            placeholder="Search by restaurant names or cuisines"
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-          />
+          <Search searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
         </div>
       </div>
       {/* restaurant cards */}
