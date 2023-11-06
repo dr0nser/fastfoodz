@@ -34,6 +34,7 @@ export default function useRestaurantCards() {
   const { data, isSuccess } = useQuery({
     queryKey: ["restaurant-cards"],
     queryFn: getRestaurants,
+    refetchOnWindowFocus: false,
   });
 
   useEffect(() => {
