@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Suspense, lazy } from "react";
 import App from "./App.tsx";
 import "./index.css";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
@@ -7,9 +7,7 @@ import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import Header from "./customcomponents/Header.tsx";
 import Footer from "./customcomponents/Footer.tsx";
 import Home from "./pages/Home.tsx";
-import Menu from "./pages/Menu.tsx";
 import { RecoilRoot } from "recoil";
-import Cart from "./pages/Cart.tsx";
 import ErrorPage from "./pages/ErrorPage.tsx";
 import {
   ClerkProvider,
@@ -23,6 +21,9 @@ import Orders from "./pages/Orders.tsx";
 
 const queryClient = new QueryClient();
 const clerkPubKey = import.meta.env.VITE_REACT_APP_CLERK_PUBLISHABLE_KEY;
+
+const Cart = lazy(() => import("./pages/Cart.tsx"));
+const Menu = lazy(() => import("./pages/Menu.tsx"));
 
 const router = createBrowserRouter([
   {
@@ -72,11 +73,19 @@ const router = createBrowserRouter([
       },
       {
         path: "/cart",
-        element: <Cart />,
+        element: (
+          <Suspense fallback={<></>}>
+            <Cart />
+          </Suspense>
+        ),
       },
       {
         path: "/:slug",
-        element: <Menu />,
+        element: (
+          <Suspense fallback={<></>}>
+            <Menu />
+          </Suspense>
+        ),
       },
       {
         path: "/",
