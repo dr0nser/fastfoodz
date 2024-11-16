@@ -45,7 +45,7 @@ As this is an ongoing project, features will be added with time.
     <td align="center" height="108" width="108">
       <a href="https://tailwindcss.com/" target="_blank">
         <img
-          src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-plain.svg"
+          src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg"
           width="48"
           height="48"
           alt="Tailwind"
@@ -99,3 +99,9 @@ As this is an ongoing project, features will be added with time.
     </td>
   </tr>
 </table>
+
+### Screenshots
+![1699324704811](https://github.com/user-attachments/assets/8c1fec5b-9b94-461f-b156-b74c8160cf85)
+![1699324912971](https://github.com/user-attachments/assets/2864c916-44fd-428b-87b2-17db2cdd1c94)
+
+
